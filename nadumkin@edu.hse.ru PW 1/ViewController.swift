@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let randomColorMax: Int = 0xFFFFFF;
+    let randomColorMax: Int = 0xFFFFFF; //consts for getting random color
     let randomColorMin: Int = 0x000000;
     
 //    enum Consts: CGFloat{
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 //        case randomColorMin = 0x0
 //    }
     
-    @IBOutlet var views: [UIView]!
+    @IBOutlet var views: [UIView]! //array of views
     @IBOutlet weak var colorChangeButton: UIButton!
     
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         viewChange(animationDuration: 2); // initing the start values for color and corner radius
     }
 
-    @IBAction func colorButtonPressed(_ sender: Any) {
+    @IBAction func colorButtonPressed(_ sender: Any) { // actions when button get pressed
         
         viewChange();
     }
@@ -50,11 +50,11 @@ class ViewController: UIViewController {
         
     }
     
-    func viewChange(animationDuration: TimeInterval = 1){
+    func viewChange(animationDuration: TimeInterval = 1){ // animating views with new corner radii and colors
         
         var set = colorSetGenerator();
         
-        colorChangeButton.isEnabled = false;
+        colorChangeButton.isEnabled = false; // disabling button
         
         for view in views{
             UIView.animate(
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
                 completion:
                     {
                         (finished: Bool) in
-                        self.colorChangeButton.isEnabled = true;
+                        self.colorChangeButton.isEnabled = true; // enabling button
                     }
 
             );
